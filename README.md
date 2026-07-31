@@ -118,7 +118,7 @@ The robot model is created entirely using **URDF**.
 
 ### 📷 Robot Model
 
-<img width="100%" src="images/robot_model.png"/>
+<img width="100%" src="Screenshot from 2026-07-31 16-12-27.png"/>
 
 The robot includes:
 
