@@ -135,7 +135,7 @@ The robot includes:
 
 The Joint State Publisher GUI allows interactive movement of continuous joints for visualization.
 
-<img width="100%" src="images/joint_state_publisher.png"/>
+<img width="100%" src="Screenshot from 2026-07-31 16-12-43.png"/>
 
 ### ▶️ Launch Command
 
@@ -155,7 +155,7 @@ This starts:
 
 The robot is visualized in RViz2 using TF frames published by Robot State Publisher.
 
-<img width="100%" src="images/rviz_visualization.png"/>
+<img width="100%" src="Screenshot from 2026-07-31 16-12-34.png"/>
 
 The visualization helps verify:
 
