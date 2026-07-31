@@ -1,75 +1,80 @@
 # 🤖 ROS 2 URDF Mobile Robot Description
 
-A beginner-friendly ROS 2 Humble project demonstrating how to design, structure, and visualize a simple differential drive mobile robot using **URDF (Unified Robot Description Format)** and **RViz2**.
+![ROS2](https://img.shields.io/badge/ROS2-Humble-blue)
+![URDF](https://img.shields.io/badge/Robot-URDF-green)
+![RViz2](https://img.shields.io/badge/Visualization-RViz2-orange)
+![Robot State Publisher](https://img.shields.io/badge/Node-Robot_State_Publisher-red)
+![License](https://img.shields.io/badge/License-Apache--2.0-yellow)
 
-This project focuses on building the robot model from scratch, defining links and joints, and visualizing the robot using ROS 2 visualization tools.
+🚀 **A ROS 2 Humble project demonstrating how to build and visualize a differential drive mobile robot using URDF, Robot State Publisher, Joint State Publisher GUI, and RViz2.**
+
+This project focuses on creating a robot model from scratch using **URDF (Unified Robot Description Format)** and visualizing it in **RViz2**. It serves as a foundational project for learning robot modeling before moving on to Gazebo simulation, ROS2 Control, SLAM, and Navigation2.
 
 ---
 
-## 📌 Overview
+# 📌 Project Overview
 
-This project creates a simple mobile robot consisting of:
+This project demonstrates how to design a simple differential drive robot in ROS 2 using URDF.
 
-* Rectangular robot base
+The robot consists of:
+
+* A rectangular robot base
 * Two continuous drive wheels
 * One caster wheel
-* LiDAR sensor mounted on top
-* Robot visualization in RViz2
+* A LiDAR sensor mounted on top
+
+The robot model is published using **Robot State Publisher**, its joints are controlled using **Joint State Publisher GUI**, and the complete robot is visualized in **RViz2**.
+
+---
+
+# 🔑 Key Concepts Demonstrated
+
+* Robot modeling using URDF
+* ROS 2 package structure
+* Links and Joints
+* Fixed and Continuous joints
+* Robot coordinate frames
+* Robot visualization using RViz2
 * Robot State Publisher
 * Joint State Publisher GUI
 
-The project provides a solid foundation for learning robot modeling before moving on to Gazebo simulation, SLAM, Navigation2 (Nav2), and autonomous robotics.
+---
+
+# 🛠️ Technologies Used
+
+| Technology                        | Description                |
+| --------------------------------- | -------------------------- |
+| 🤖 **ROS 2 Humble**               | Robotics middleware        |
+| 📄 **URDF**                       | Robot description format   |
+| 🎯 **RViz2**                      | Robot visualization        |
+| 🔄 **Robot State Publisher**      | Publishes robot transforms |
+| 🎛️ **Joint State Publisher GUI** | Controls movable joints    |
+| ⚙️ **CMake**                      | ROS 2 build system         |
+| 🐧 **Ubuntu 22.04**               | Operating System           |
 
 ---
 
-## 🚀 Features
+# ⚙️ System Workflow
 
-* ✅ Robot modeled completely in URDF
-* ✅ Differential drive robot structure
-* ✅ Base Footprint and Base Link
-* ✅ Continuous wheel joints
-* ✅ Fixed caster wheel
-* ✅ LiDAR sensor representation
-* ✅ Robot State Publisher integration
-* ✅ Joint State Publisher GUI
-* ✅ RViz2 visualization
-* ✅ ROS 2 package structure using CMake
+The project workflow follows these steps:
 
----
+1️⃣ Build the ROS 2 workspace
 
-## 🛠️ Technologies Used
+2️⃣ Source the workspace
 
-* ROS 2 Humble
-* URDF
-* RViz2
-* Robot State Publisher
-* Joint State Publisher GUI
-* CMake
-* Ubuntu 22.04
+3️⃣ Launch the robot visualization
+
+4️⃣ Robot State Publisher publishes the TF tree
+
+5️⃣ Joint State Publisher GUI updates wheel joint states
+
+6️⃣ RViz2 displays the complete robot model
 
 ---
 
-## 📁 Project Structure
+# 💻 System Requirements
 
-```text
-my_urdf/
-├── src/
-│   └── my_pkg/
-│       ├── launch/
-│       │   └── display.launch.py
-│       ├── urdf/
-│       │   └── my_robot.urdf
-│       ├── CMakeLists.txt
-│       └── package.xml
-├── README.md
-└── .gitignore
-```
-
----
-
-## ⚙️ Prerequisites
-
-Before running this project, make sure you have:
+Before running this project, ensure the following software is installed:
 
 * Ubuntu 22.04
 * ROS 2 Humble
@@ -80,7 +85,88 @@ Before running this project, make sure you have:
 
 ---
 
-## 📦 Build the Project
+# 📂 Project Structure
+
+```text
+my_urdf/
+│
+├── README.md
+├── images/
+│   ├── robot_model.png
+│   ├── joint_state_publisher.png
+│   └── rviz_visualization.png
+│
+└── src/
+    └── my_pkg/
+        ├── launch/
+        │   └── display.launch.py
+        ├── urdf/
+        │   └── my_robot.urdf
+        ├── CMakeLists.txt
+        └── package.xml
+```
+
+---
+
+# 🖥️ Project Demonstration
+
+---
+
+## 1️⃣ Robot Description
+
+The robot model is created entirely using **URDF**.
+
+### 📷 Robot Model
+
+<img width="100%" src="images/robot_model.png"/>
+
+The robot includes:
+
+* Base Link
+* Base Footprint
+* Left Wheel
+* Right Wheel
+* Caster Wheel
+* LiDAR Sensor
+
+---
+
+## 2️⃣ Joint State Publisher GUI
+
+The Joint State Publisher GUI allows interactive movement of continuous joints for visualization.
+
+<img width="100%" src="images/joint_state_publisher.png"/>
+
+### ▶️ Launch Command
+
+```bash
+ros2 launch my_pkg display.launch.py
+```
+
+This starts:
+
+* Robot State Publisher
+* Joint State Publisher GUI
+* RViz2
+
+---
+
+## 3️⃣ RViz2 Visualization
+
+The robot is visualized in RViz2 using TF frames published by Robot State Publisher.
+
+<img width="100%" src="images/rviz_visualization.png"/>
+
+The visualization helps verify:
+
+* Robot geometry
+* Link hierarchy
+* Joint configuration
+* Robot transforms (TF)
+
+---
+
+# ▶️ Build the Project
 
 ```bash
 cd ~/my_urdf
@@ -92,92 +178,87 @@ source install/setup.bash
 
 ---
 
-## ▶️ Run the Project
-
-Launch the robot visualization:
+# ▶️ Run the Project
 
 ```bash
 ros2 launch my_pkg display.launch.py
 ```
 
-This launch file starts:
+---
 
-* Robot State Publisher
-* Joint State Publisher GUI
-* RViz2
+# ✨ Features
+
+✅ Robot modeled entirely using URDF
+
+✅ Differential drive robot structure
+
+✅ Base Link and Base Footprint
+
+✅ Continuous wheel joints
+
+✅ Fixed caster wheel
+
+✅ LiDAR sensor model
+
+✅ Robot State Publisher integration
+
+✅ Joint State Publisher GUI
+
+✅ RViz2 visualization
+
+✅ Clean ROS 2 package organization
 
 ---
 
-# 📷 Output
-
-## Robot Visualization
-
-> Replace the image paths below after uploading your screenshots.
-
-### Robot Model
-
-![Robot Model](images/Screenshot%20from%202026-07-31%2016-12-27.png)
-
----
-
-### Joint State Publisher
-
-![Joint State Publisher](images/Screenshot%20from%202026-07-31%2016-12-34.png)
-
----
-
-### RViz2 Visualization
-
-![RViz2](images/Screenshot%20from%202026-07-31%2016-12-43.png)
-
----
-
-## 📚 Learning Outcomes
+# 📚 Learning Outcomes
 
 Through this project, I learned:
 
 * Creating robot models using URDF
-* Understanding Links and Joints
-* Using Fixed and Continuous joints
-* Defining robot materials and colors
-* Organizing a ROS 2 package
-* Launching multiple ROS 2 nodes
-* Visualizing robots in RViz2
-* Working with Robot State Publisher
+* Understanding robot links and joints
+* Working with Fixed and Continuous joints
+* Defining materials and colors
+* Building ROS 2 packages
+* Installing package resources
+* Using Robot State Publisher
 * Using Joint State Publisher GUI
+* Visualizing robots in RViz2
+* Understanding the TF frame hierarchy
 
 ---
 
-## 🔮 Future Improvements
+# 🚀 Future Improvements
 
 Planned enhancements include:
 
-* Add Xacro support
-* Add robot inertial properties
-* Add collision models
+* Add collision geometry
+* Add inertial properties
+* Convert URDF to Xacro
 * Integrate Gazebo simulation
-* Add LiDAR plugin
+* Add LiDAR plugins
 * Add camera sensor
-* Implement ROS 2 Control
-* Perform SLAM using slam_toolbox
-* Autonomous Navigation using Nav2
+* Integrate ROS2 Control
+* Prepare robot for SLAM
+* Navigation2 integration
 
 ---
 
-## 👨‍💻 Author
+# 👨‍💻 Author
 
-**Omkar Honrao**
+**Omkar Maroti Honrao**
 
-B.Tech Electrical Engineering Student
+**B.Tech Electrical Engineering Student**
 
-Robotics | ROS 2 | Python | Gazebo | RViz2 | OpenCV | Navigation2 | SLAM
+**Robotics Research Intern**
+
+**Skills:** ROS 2 • Python • URDF • Gazebo • RViz2 • OpenCV • Navigation2 • SLAM
 
 GitHub: https://github.com/omkar-robotics
 
 ---
 
-## ⭐ Support
+# ⭐ Support
 
 If you found this project helpful, consider giving it a **⭐ Star** on GitHub.
 
-It motivates me to continue building and sharing more ROS 2 and Robotics projects.
+Your support motivates me to continue building and sharing more ROS 2 and Robotics projects.
